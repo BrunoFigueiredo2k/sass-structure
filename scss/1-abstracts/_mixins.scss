@@ -33,3 +33,8 @@
         @content;
     }
 }
+
+@mixin container($width) {
+    margin: 0 auto;
+    width: $width;
+}
