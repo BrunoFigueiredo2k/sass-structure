@@ -3,16 +3,16 @@
 /* Font Imports */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /* Mixins */
-.horizontal-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.container {
+  margin: 0 auto;
+  width: 87%;
 }
 
-.horizontal-list li {
-  display: inline-block;
-  margin-left: -2px;
-  margin-right: 2em;
+@media (max-width: 1340px) {
+  .container {
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 
 /* Import all base .scss files */
@@ -21,7 +21,6 @@
 *:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 html,
@@ -129,6 +128,12 @@ input {
   border-radius: 0;
 }
 
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
 /**
  * Typography
  * =================================
@@ -151,12 +156,8 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  line-height: 1.7em;
   text-rendering: optimizelegibility;
   margin-top: 0;
-  margin-bottom: 20px;
 }
 
 h1 small,
@@ -171,7 +172,7 @@ h6 small {
 /* Import all components .scss files */
 /* Place all button components styling here */
 .btn-primary {
-  background-color: #EF4B46;
+  background-color: black;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
@@ -187,7 +188,7 @@ input,
 select,
 textarea {
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 12px;
   padding: 20px;
 }
 
@@ -198,19 +199,62 @@ textarea:focus {
 }
 
 /* Place all modal/popup components styling here */
+.horizontal-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.horizontal-list li {
+  display: inline-block;
+  margin-left: -2px;
+  margin-right: 2em;
+  -webkit-transition: 200ms ease;
+  transition: 200ms ease;
+}
+
+.horizontal-list li:hover {
+  cursor: pointer;
+  color: #878787;
+}
+
+@media (max-width: 1340px) {
+  .horizontal-list li {
+    margin: 0 10px !important;
+  }
+}
+
+.vertical-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vertical-list li {
+  margin: 10px 0;
+  -webkit-transition: 200ms ease;
+  transition: 200ms ease;
+}
+
+.vertical-list li:hover {
+  cursor: pointer;
+  color: #878787;
+}
+
+@media (max-width: 1340px) {
+  .vertical-list li {
+    margin: 0 10px !important;
+  }
+}
+
 /* Import all layouts .scss files */
 /* Footer component */
 footer {
-  background-color: #EF4B46;
-  color: white;
   padding: 20px;
-  text-align: center;
 }
 
 /* Header component */
 header {
-  background-color: #EF4B46;
-  color: white;
   padding: 20px;
 }
 /*# sourceMappingURL=main.css.map */

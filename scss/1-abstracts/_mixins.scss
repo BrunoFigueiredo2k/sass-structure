@@ -1,4 +1,38 @@
 /* Mixins */
+@mixin mobile {
+    @media (max-width: #{$desktop-width - 100px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin container($width) {
+    margin: 0 auto;
+    width: $width;
+}
+
+
+@mixin hoverEffect($text-color, $percentage, $darken: true) {
+    transition: $transition-ease;
+
+    &:hover {
+        cursor: pointer;
+
+        @if $darken {
+            color: darken($text-color, $percentage);
+        }
+
+        @else {
+            color: lighten($text-color, $percentage);
+        }
+    }
+}
+
 @mixin reset-list {
     margin: 0;
     padding: 0;
@@ -15,26 +49,42 @@
             left: -2px;
             right: 2em;
         }
+
+        @include hoverEffect($dark-gray, 10%, true);
+
+        @include mobile {
+            margin: 0 10px !important;
+        }
     }
 }
 
-.horizontal-list {
-    @include horizontal-list;
-}
+@mixin vertical-list {
+    @include reset-list;
 
-@mixin mobile {
-    @media (max-width: #{$desktop-width - 100px}) {
-        @content;
+    li {
+        margin: 10px 0;
+
+        @include hoverEffect($dark-gray, 10%, true);
+
+        @include mobile {
+            margin: 0 10px !important;
+        }
     }
 }
 
-@mixin desktop {
-    @media (min-width: $desktop-width) {
-        @content;
-    }
+
+
+@mixin backgroundImageCover($img-url) {
+    background: url($img-url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 60%;
 }
 
-@mixin container($width) {
-    margin: 0 auto;
-    width: $width;
+.container {
+    @include container(87%);
+
+    @include mobile {
+        @include container(95%);
+    }
 }

@@ -2,7 +2,6 @@
 *:before,
 *:after {
     box-sizing: border-box;
-    font-family: $font-roboto;
 }
 
 html,
@@ -105,4 +104,10 @@ table {
 input {
     -webkit-appearance: none;
     border-radius: 0;
+}
+
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
